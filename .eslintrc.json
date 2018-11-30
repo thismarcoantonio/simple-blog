@@ -37,6 +37,8 @@
     "beforeEach": true,
     "afterEach": true,
     "before": true,
-    "after": true
+    "after": true,
+    "jest": true,
+    "expect": true
   }
 }
