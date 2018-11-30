@@ -1,9 +1,9 @@
 export default (sequelize, DataType) => sequelize
   .define('Users', {
     id: {
-      type: DataType.INTEGER,
       primaryKey: true,
-      autoIncrement: true
+      type: DataType.UUID,
+      defaultValue: DataType.UUIDV1
     },
     username: {
       type: DataType.STRING,

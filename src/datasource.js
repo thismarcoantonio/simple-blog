@@ -19,14 +19,14 @@ const loadModels = (sequelize) => {
 
 export default () => {
   const options = { ...config.databaseOptions, operatorsAliases: Sequelize.Op };
-  const sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    options
-  );
+  const sequelize = new Sequelize(config.database, config.username, config.password, options);
   const database = { sequelize, Sequelize, models: loadModels(sequelize) };
 
-  sequelize.sync().then(() => sequelize);
+  const { Users, Posts } = database.models;
+
+  Users.hasMany(Posts);
+
+  sequelize.sync().done(() => database);
+
   return database;
 };

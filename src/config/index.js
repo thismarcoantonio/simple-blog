@@ -4,6 +4,6 @@ export default {
   password: '',
   databaseOptions: {
     dialect: 'sqlite',
-    storage: 'simple-blog.sqlite'
+    storage: `${process.env.NODE_ENV}-simple-blog.sqlite`
   }
 };
